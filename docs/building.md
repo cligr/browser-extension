@@ -7,14 +7,14 @@ browser.
 Installing the dependencies
 ---------------------------
 
-You should have [Node v4.x][node4] installed.
+You should have [Node v6.x (or later)][node] installed.
 
 Before continuing, install the development dependencies by running the following
 at the root of the repository:
 
     $ npm install
 
-[node4]: https://nodejs.org/en/download/
+[node]: https://nodejs.org/en/download/
 
 Building the extension
 ----------------------
@@ -41,9 +41,13 @@ Once you've built the extension, you will be able to load the `build/` directory
 as an unpacked extension:
 
 1.  Go to `chrome://extensions/` in Chrome.
-2.  Tick **Developer mode**.
-3.  Click **Load unpacked extension**.
-4.  Browse to the `build/` directory where the extension was built and select it.
+2. If you used the `chrome-prod.json` settings file to build a production
+   extension, you will need to **remove** the "real" production extension from
+   Chrome before loading your locally built one or create a new Chrome profile
+   without the real one installed.
+3.  Tick **Developer mode**.
+4.  Click **Load unpacked extension**.
+5.  Browse to the `build/` directory where the extension was built and select it.
 
 Your extension should be working now! Remember that if you built a development
 extension it will point to a Hypothesis service running on
